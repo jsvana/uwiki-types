@@ -36,12 +36,6 @@ impl AuthenticateResponse {
 }
 
 #[derive(Deserialize, Serialize)]
-pub struct GetPageRequest {
-    pub token: String,
-    pub slug: String,
-}
-
-#[derive(Deserialize, Serialize)]
 pub struct GetPageResponse {
     pub success: bool,
     pub message: String,
@@ -64,26 +58,7 @@ impl GetPageResponse {
 
 #[derive(Deserialize, Serialize)]
 pub struct SetPageRequest {
-    pub token: String,
-    pub slug: String,
     pub title: String,
     pub body: String,
     pub previous_version: i32,
-}
-
-#[derive(Deserialize, Serialize)]
-pub struct SetPageResponse {
-    pub success: bool,
-    pub message: String,
-    pub new_version: Option<i32>,
-}
-
-impl SetPageResponse {
-    pub fn error(message: String) -> Self {
-        Self {
-            success: false,
-            message,
-            new_version: None,
-        }
-    }
 }
