@@ -62,3 +62,10 @@ pub struct SetPageRequest {
     pub body: String,
     pub previous_version: i32,
 }
+
+#[derive(Deserialize, Serialize)]
+pub struct CreatePageRequest {
+    pub slug: String,
+    pub title: String,
+    pub body: String,
+}
